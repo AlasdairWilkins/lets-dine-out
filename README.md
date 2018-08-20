@@ -1,0 +1,5 @@
+# lets-dine-out
+
+This React Native app was born of one of the very first things I learned about my girlfriend when I first viewed her dating profile: "I consider it morally reprehensible to be inside on a nice day...  I don't understand why Yelp's algorithms haven't figured out that from May-October I only want to see restaurants with outdoor seating." Seeing a problem in search of a solution, I built this app to find bars and restaurants nearby that have outdoor seating.
+
+This proved trickier than expected, as Yelp's API does not include that information. As such, the app has to employ a workaround to get this information. On startup, the app gets the latitude and longitude data for the phone and sends it to a Node server deployed on Heroku. The server then uses that data to build a query string for nearby places with outdoor seating and send it to Yelp, automating steps the user would otherwise need to do manually if searching on their computer. The server then processes the returned HTML using regular expressions, building an object that the React Native interface can then use to display the results.
